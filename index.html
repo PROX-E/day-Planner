@@ -120,5 +120,21 @@
       </div>
     </div>
   </div>
+  <script>
+    $("#today").text(moment().format("dddd MMM Do YY"));
+    // console.log(JSON.parse(localStorage.getItem(1)))
+    // console.log(moment().format("hh"));
+    var timeEl = document.querySelectorAll("span");
+    console.log(timeEl);
+    var textEl = document.querySelectorAll(".form-control");
+    console.log(textEl);
+    console.log(JSON.parse(localStorage.getItem(1)))
+    for (let i = 0; i < 8; i++) {
+      var storedPlan = JSON.parse(localStorage.getItem(i));
+      console.log(storedPlan);
+      textEl[i].textContent=storedPlan;
+      console.log(textEl[i]);
+    }
+</script>
 </body>
 </html>
