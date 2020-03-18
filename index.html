@@ -135,6 +135,29 @@
       textEl[i].textContent=storedPlan;
       console.log(textEl[i]);
     }
+    console.log($(timeEl).innerText)
+    var randomFormat = "hh";
+    // var randomDate = "1 PM";
+
+    for (let i = 0; i < timeEl.length; i++) {
+      let timeStamp = timeEl[i].innerText;
+      console.log(timeStamp);
+      var randomDate = timeStamp;
+      var convertedDate = moment(randomDate, randomFormat);
+      console.log(convertedDate);
+      console.log(convertedDate.diff(moment(), "hours"));
+
+      if (convertedDate.diff(moment(), "hour") === 0) {
+        console.log("red")
+          $(textEl[i]).attr("style", "background-color: red;");
+      } else if (convertedDate.diff(moment(), "hour") <=-1)  {
+        console.log("gray")
+          $(textEl[i]).attr("style", "background-color: gray;");
+      } else if (convertedDate.diff(moment(), "hour") > 0) {
+        console.log("UGLY COLOR")
+          $(textEl[i]).attr("style", "background-color: #6fdf6b;"); 
+      }
+    }
 </script>
 </body>
 </html>
